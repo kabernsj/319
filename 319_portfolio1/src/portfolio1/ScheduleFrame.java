@@ -397,10 +397,10 @@ public class ScheduleFrame extends JFrame {
 		chckbxMonday4.setBounds(182, 85, 63, 23);
 		entryPanel.add(chckbxMonday4);
 		
-		JCheckBox checkBox_1 = new JCheckBox("Tuesday");
-		checkBox_1.setFont(new Font("Arial", Font.PLAIN, 11));
-		checkBox_1.setBounds(247, 85, 67, 23);
-		entryPanel.add(checkBox_1);
+		JCheckBox chckbxTuesday4 = new JCheckBox("Tuesday");
+		chckbxTuesday4.setFont(new Font("Arial", Font.PLAIN, 11));
+		chckbxTuesday4.setBounds(247, 85, 67, 23);
+		entryPanel.add(chckbxTuesday4);
 		
 		JCheckBox chckbxWednesday4 = new JCheckBox("Wednesday");
 		chckbxWednesday4.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -479,15 +479,15 @@ public class ScheduleFrame extends JFrame {
 		txtFieldActivity5.setBounds(90, 111, 86, 20);
 		entryPanel.add(txtFieldActivity5);
 		
-		JCheckBox checkBox_8 = new JCheckBox("Monday");
-		checkBox_8.setFont(new Font("Arial", Font.PLAIN, 11));
-		checkBox_8.setBounds(182, 110, 63, 23);
-		entryPanel.add(checkBox_8);
-		
-		JCheckBox chckbxMonday5 = new JCheckBox("Tuesday");
+		JCheckBox chckbxMonday5 = new JCheckBox("Monday");
 		chckbxMonday5.setFont(new Font("Arial", Font.PLAIN, 11));
-		chckbxMonday5.setBounds(247, 110, 67, 23);
+		chckbxMonday5.setBounds(182, 110, 63, 23);
 		entryPanel.add(chckbxMonday5);
+		
+		JCheckBox chckbxTuesday5 = new JCheckBox("Tuesday");
+		chckbxTuesday5.setFont(new Font("Arial", Font.PLAIN, 11));
+		chckbxTuesday5.setBounds(247, 110, 67, 23);
+		entryPanel.add(chckbxTuesday5);
 		
 		JCheckBox chckbxWednesday5 = new JCheckBox("Wednesday");
 		chckbxWednesday5.setFont(new Font("Arial", Font.PLAIN, 11));
