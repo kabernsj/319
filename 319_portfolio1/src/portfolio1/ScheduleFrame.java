@@ -295,37 +295,37 @@ public class ScheduleFrame extends JFrame {
 		txtFieldActivity3.setBounds(90, 61, 86, 20);
 		entryPanel.add(txtFieldActivity3);
 		
-		JCheckBox chckbxMonday3 = new JCheckBox("Monday");
+		final JCheckBox chckbxMonday3 = new JCheckBox("Monday");
 		chckbxMonday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday3.setBounds(182, 60, 63, 23);
 		entryPanel.add(chckbxMonday3);
 		
-		JCheckBox chckbxTuesday3 = new JCheckBox("Tuesday");
+		final JCheckBox chckbxTuesday3 = new JCheckBox("Tuesday");
 		chckbxTuesday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday3.setBounds(247, 60, 67, 23);
 		entryPanel.add(chckbxTuesday3);
 		
-		JCheckBox chckbxWednesday3 = new JCheckBox("Wednesday");
+		final JCheckBox chckbxWednesday3 = new JCheckBox("Wednesday");
 		chckbxWednesday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday3.setBounds(316, 60, 83, 23);
 		entryPanel.add(chckbxWednesday3);
 		
-		JCheckBox chckbxThursday3 = new JCheckBox("Thursday");
+		final JCheckBox chckbxThursday3 = new JCheckBox("Thursday");
 		chckbxThursday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday3.setBounds(401, 60, 71, 23);
 		entryPanel.add(chckbxThursday3);
 		
-		JCheckBox chckbxFriday3 = new JCheckBox("Friday");
+		final JCheckBox chckbxFriday3 = new JCheckBox("Friday");
 		chckbxFriday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday3.setBounds(474, 60, 55, 23);
 		entryPanel.add(chckbxFriday3);
 		
-		JCheckBox chckbxSaturday3 = new JCheckBox("Saturday");
+		final JCheckBox chckbxSaturday3 = new JCheckBox("Saturday");
 		chckbxSaturday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday3.setBounds(531, 60, 69, 23);
 		entryPanel.add(chckbxSaturday3);
 		
-		JCheckBox chckbxSunday3 = new JCheckBox("Sunday");
+		final JCheckBox chckbxSunday3 = new JCheckBox("Sunday");
 		chckbxSunday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday3.setBounds(602, 60, 63, 23);
 		entryPanel.add(chckbxSunday3);
@@ -372,7 +372,7 @@ public class ScheduleFrame extends JFrame {
 		// TODO add action listener that calls processEntry
 		chckbxEnable3.addActionListener(new ActionListener() {
 			
-			boolean[] week3 = {false,false,false,false,false,false,false};
+			boolean[] week3 = {chckbxMonday3.isEnabled(),chckbxTuesday3.isEnabled(), chckbxWednesday3.isEnabled(), chckbxThursday3.isEnabled(), chckbxFriday3.isEnabled(), chckbxSaturday3.isEnabled(), chckbxSunday3.isEnabled()};
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -605,8 +605,4 @@ public class ScheduleFrame extends JFrame {
 		return ret;
 	}
 	
-	private boolean[] getWeek(){
-		
-		return null;
-	}
 }
