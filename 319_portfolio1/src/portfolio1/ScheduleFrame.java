@@ -11,6 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -108,7 +110,7 @@ public class ScheduleFrame extends JFrame {
 		// this method will need to figure out how many calls to displayActivity are needed and which panels to pass in
 	}
 	
-	private void fillEntryPanel(JPanel entryPanel, JPanel[][] schedulePanels) {
+	private void fillEntryPanel(JPanel entryPanel, final JPanel[][] schedulePanels) {
 		JLabel lblActivityName = new JLabel("Activity Name:");
 		lblActivityName.setFont(new Font("Arial", Font.PLAIN, 11));
 		lblActivityName.setBounds(10, 14, 70, 14);
@@ -328,7 +330,7 @@ public class ScheduleFrame extends JFrame {
 		chckbxSunday3.setBounds(602, 60, 63, 23);
 		entryPanel.add(chckbxSunday3);
 		
-		JComboBox<String> startTime3 = new JComboBox<String>();
+		final JComboBox<String> startTime3 = new JComboBox<String>();
 		startTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		startTime3.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime3.setBounds(745, 61, 54, 20);
@@ -344,7 +346,7 @@ public class ScheduleFrame extends JFrame {
 		label_7.setBounds(809, 64, 47, 14);
 		entryPanel.add(label_7);
 		
-		JComboBox<String> endTime3 = new JComboBox<String>();
+		final JComboBox<String> endTime3 = new JComboBox<String>();
 		endTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		endTime3.setSelectedIndex(1);
 		endTime3.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -356,7 +358,7 @@ public class ScheduleFrame extends JFrame {
 		label_8.setBounds(949, 64, 28, 14);
 		entryPanel.add(label_8);
 		
-		JComboBox<String> color3 = new JComboBox<String>();
+		final JComboBox<String> color3 = new JComboBox<String>();
 		color3.setModel(new DefaultComboBoxModel<String>(new String[] {"Blue", "Cyan", "Gray", "Green", "Magenta", "Orange", "Pink", "Red", "White", "Yellow"}));
 		color3.setSelectedIndex(0);
 		color3.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -368,6 +370,16 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(chckbxEnable3);
 		
 		// TODO add action listener that calls processEntry
+		chckbxEnable3.addActionListener(new ActionListener() {
+			
+			boolean[] week3 = {false,false,false,false,false,false,false};
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				processEntry(schedulePanels,txtFieldActivity3.getText(),week3 ,startTime3.getSelectedItem().toString(),endTime3.getSelectedItem().toString(), color3.getSelectedItem().toString());
+				//Try casting to string instead toString
+			}
+		});
 		
 		
 		JLabel label_9 = new JLabel("Activity Name:");
@@ -591,5 +603,10 @@ public class ScheduleFrame extends JFrame {
 			}
 		}
 		return ret;
+	}
+	
+	private boolean[] getWeek(){
+		
+		return null;
 	}
 }
