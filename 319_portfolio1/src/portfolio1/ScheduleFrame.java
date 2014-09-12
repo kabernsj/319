@@ -372,11 +372,12 @@ public class ScheduleFrame extends JFrame {
 		// TODO add action listener that calls processEntry
 		chckbxEnable3.addActionListener(new ActionListener() {
 			
-			boolean[] week3 = {chckbxMonday3.isEnabled(),chckbxTuesday3.isEnabled(), chckbxWednesday3.isEnabled(), chckbxThursday3.isEnabled(), chckbxFriday3.isEnabled(), chckbxSaturday3.isEnabled(), chckbxSunday3.isEnabled()};
+			
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				processEntry(schedulePanels,txtFieldActivity3.getText(),week3 ,startTime3.getSelectedItem().toString(),endTime3.getSelectedItem().toString(), color3.getSelectedItem().toString());
+				boolean[] week3 = {chckbxMonday3.isSelected(),chckbxTuesday3.isSelected(), chckbxWednesday3.isSelected(), chckbxThursday3.isSelected(), chckbxFriday3.isSelected(), chckbxSaturday3.isSelected(), chckbxSunday3.isSelected()};
+				processEntry(schedulePanels,txtFieldActivity3.getText(),week3 ,(String) startTime3.getSelectedItem(),endTime3.getSelectedItem().toString(), color3.getSelectedItem().toString());
 				//Try casting to string instead toString
 			}
 		});
