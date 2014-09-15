@@ -121,37 +121,37 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(txtFieldActivity1);
 		txtFieldActivity1.setColumns(10);
 		
-		JCheckBox chckbxMonday1 = new JCheckBox("Monday");
+		final JCheckBox chckbxMonday1 = new JCheckBox("Monday");
 		chckbxMonday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday1.setBounds(182, 10, 63, 23);
 		entryPanel.add(chckbxMonday1);
 		
-		JCheckBox chckbxTuesday1 = new JCheckBox("Tuesday");
+		final JCheckBox chckbxTuesday1 = new JCheckBox("Tuesday");
 		chckbxTuesday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday1.setBounds(247, 10, 67, 23);
 		entryPanel.add(chckbxTuesday1);
 		
-		JCheckBox chckbxWednesday1 = new JCheckBox("Wednesday");
+		final JCheckBox chckbxWednesday1 = new JCheckBox("Wednesday");
 		chckbxWednesday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday1.setBounds(316, 10, 83, 23);
 		entryPanel.add(chckbxWednesday1);
 		
-		JCheckBox chckbxThursday1 = new JCheckBox("Thursday");
+		final JCheckBox chckbxThursday1 = new JCheckBox("Thursday");
 		chckbxThursday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday1.setBounds(401, 10, 71, 23);
 		entryPanel.add(chckbxThursday1);
 		
-		JCheckBox chckbxFriday1 = new JCheckBox("Friday");
+		final JCheckBox chckbxFriday1 = new JCheckBox("Friday");
 		chckbxFriday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday1.setBounds(474, 10, 55, 23);
 		entryPanel.add(chckbxFriday1);
 		
-		JCheckBox chckbxSaturday1 = new JCheckBox("Saturday");
+		final JCheckBox chckbxSaturday1 = new JCheckBox("Saturday");
 		chckbxSaturday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday1.setBounds(531, 10, 69, 23);
 		entryPanel.add(chckbxSaturday1);
 		
-		JCheckBox chckbxSunday1 = new JCheckBox("Sunday");
+		final JCheckBox chckbxSunday1 = new JCheckBox("Sunday");
 		chckbxSunday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday1.setBounds(602, 10, 63, 23);
 		entryPanel.add(chckbxSunday1);
@@ -161,7 +161,7 @@ public class ScheduleFrame extends JFrame {
 		lblStartTime.setBounds(686, 14, 53, 14);
 		entryPanel.add(lblStartTime);
 		
-		JComboBox<String> startTime1 = new JComboBox<String>();
+		final JComboBox<String> startTime1 = new JComboBox<String>();
 		startTime1.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime1.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		startTime1.setBounds(745, 11, 54, 20);
@@ -172,7 +172,7 @@ public class ScheduleFrame extends JFrame {
 		lblEndTime.setBounds(809, 14, 47, 14);
 		entryPanel.add(lblEndTime);
 		
-		JComboBox<String> endTime1 = new JComboBox<String>();
+		final JComboBox<String> endTime1 = new JComboBox<String>();
 		endTime1.setFont(new Font("Arial", Font.PLAIN, 11));
 		endTime1.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		endTime1.setSelectedIndex(1);
@@ -184,7 +184,7 @@ public class ScheduleFrame extends JFrame {
 		lblColor.setBounds(949, 14, 28, 14);
 		entryPanel.add(lblColor);
 		
-		JComboBox<String> color1 = new JComboBox<String>();
+		final JComboBox<String> color1 = new JComboBox<String>();
 		color1.setFont(new Font("Arial", Font.PLAIN, 11));
 		color1.setModel(new DefaultComboBoxModel<String>(new String[] {"Blue", "Cyan", "Gray", "Green", "Magenta", "Orange", "Pink", "Red", "White", "Yellow"}));
 		color1.setSelectedIndex(0);
@@ -195,7 +195,18 @@ public class ScheduleFrame extends JFrame {
 		chckbxEnable1.setBounds(1067, 10, 97, 23);
 		entryPanel.add(chckbxEnable1);
 		
-		// TODO add action listener that calls processEntry
+		//Brian
+		chckbxEnable1.addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean[] week = {chckbxMonday1.isSelected(),chckbxTuesday1.isSelected(), chckbxWednesday1.isSelected(), chckbxThursday1.isSelected(), chckbxFriday1.isSelected(), chckbxSaturday1.isSelected(), chckbxSunday1.isSelected()};
+				processEntry(schedulePanels,txtFieldActivity1.getText(),week ,(String) startTime1.getSelectedItem(),endTime1.getSelectedItem().toString(), color1.getSelectedItem().toString());
+				//Try casting to string instead toString
+			}
+		});
 		
 		
 		JLabel label_1 = new JLabel("Activity Name:");
@@ -207,45 +218,43 @@ public class ScheduleFrame extends JFrame {
 		chckbxEnable2.setBounds(1067, 35, 97, 23);
 		entryPanel.add(chckbxEnable2);
 		
-		// TODO add action listener that calls processEntry
-		
 		
 		txtFieldActivity2 = new JTextField();
 		txtFieldActivity2.setColumns(10);
 		txtFieldActivity2.setBounds(90, 36, 86, 20);
 		entryPanel.add(txtFieldActivity2);
 		
-		JCheckBox chckbxMonday2 = new JCheckBox("Monday");
+		final JCheckBox chckbxMonday2 = new JCheckBox("Monday");
 		chckbxMonday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday2.setBounds(182, 35, 63, 23);
 		entryPanel.add(chckbxMonday2);
 		
-		JCheckBox chckbxTuesday2 = new JCheckBox("Tuesday");
+		final JCheckBox chckbxTuesday2 = new JCheckBox("Tuesday");
 		chckbxTuesday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday2.setBounds(247, 35, 67, 23);
 		entryPanel.add(chckbxTuesday2);
 		
-		JCheckBox chckbxWednesday2 = new JCheckBox("Wednesday");
+		final JCheckBox chckbxWednesday2 = new JCheckBox("Wednesday");
 		chckbxWednesday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday2.setBounds(316, 35, 83, 23);
 		entryPanel.add(chckbxWednesday2);
 		
-		JCheckBox chckbxThursday2 = new JCheckBox("Thursday");
+		final JCheckBox chckbxThursday2 = new JCheckBox("Thursday");
 		chckbxThursday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday2.setBounds(401, 35, 71, 23);
 		entryPanel.add(chckbxThursday2);
 		
-		JCheckBox chckbxFriday2 = new JCheckBox("Friday");
+		final JCheckBox chckbxFriday2 = new JCheckBox("Friday");
 		chckbxFriday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday2.setBounds(474, 35, 55, 23);
 		entryPanel.add(chckbxFriday2);
 		
-		JCheckBox chckbxSaturday2 = new JCheckBox("Saturday");
+		final JCheckBox chckbxSaturday2 = new JCheckBox("Saturday");
 		chckbxSaturday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday2.setBounds(531, 35, 69, 23);
 		entryPanel.add(chckbxSaturday2);
 		
-		JCheckBox chckbxSunday2 = new JCheckBox("Sunday");
+		final JCheckBox chckbxSunday2 = new JCheckBox("Sunday");
 		chckbxSunday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday2.setBounds(602, 35, 63, 23);
 		entryPanel.add(chckbxSunday2);
@@ -255,7 +264,7 @@ public class ScheduleFrame extends JFrame {
 		label_2.setBounds(686, 39, 53, 14);
 		entryPanel.add(label_2);
 		
-		JComboBox<String> startTime2 = new JComboBox<String>();
+		final JComboBox<String> startTime2 = new JComboBox<String>();
 		startTime2.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		startTime2.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime2.setBounds(745, 36, 54, 20);
@@ -266,7 +275,7 @@ public class ScheduleFrame extends JFrame {
 		label_3.setBounds(809, 39, 47, 14);
 		entryPanel.add(label_3);
 		
-		JComboBox<String> endTime2 = new JComboBox<String>();
+		final JComboBox<String> endTime2 = new JComboBox<String>();
 		endTime2.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		endTime2.setSelectedIndex(1);
 		endTime2.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -278,12 +287,25 @@ public class ScheduleFrame extends JFrame {
 		label_4.setBounds(949, 39, 28, 14);
 		entryPanel.add(label_4);
 		
-		JComboBox<String> color2 = new JComboBox<String>();
+		final JComboBox<String> color2 = new JComboBox<String>();
 		color2.setModel(new DefaultComboBoxModel<String>(new String[] {"Blue", "Cyan", "Gray", "Green", "Magenta", "Orange", "Pink", "Red", "White", "Yellow"}));
 		color2.setSelectedIndex(0);
 		color2.setFont(new Font("Arial", Font.PLAIN, 11));
 		color2.setBounds(987, 36, 67, 20);
 		entryPanel.add(color2);
+		
+		//Brian
+		chckbxEnable2.addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean[] week = {chckbxMonday2.isSelected(),chckbxTuesday2.isSelected(), chckbxWednesday2.isSelected(), chckbxThursday2.isSelected(), chckbxFriday2.isSelected(), chckbxSaturday2.isSelected(), chckbxSunday2.isSelected()};
+				processEntry(schedulePanels,txtFieldActivity2.getText(),week ,(String) startTime2.getSelectedItem(),endTime2.getSelectedItem().toString(), color2.getSelectedItem().toString());
+				//Try casting to string instead toString
+			}
+		});
 		
 		JLabel label_5 = new JLabel("Activity Name:");
 		label_5.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -369,7 +391,7 @@ public class ScheduleFrame extends JFrame {
 		chckbxEnable3.setBounds(1067, 60, 97, 23);
 		entryPanel.add(chckbxEnable3);
 		
-		// TODO add action listener that calls processEntry
+		//Brian
 		chckbxEnable3.addActionListener(new ActionListener() {
 			
 			
@@ -378,6 +400,17 @@ public class ScheduleFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				boolean[] week3 = {chckbxMonday3.isSelected(),chckbxTuesday3.isSelected(), chckbxWednesday3.isSelected(), chckbxThursday3.isSelected(), chckbxFriday3.isSelected(), chckbxSaturday3.isSelected(), chckbxSunday3.isSelected()};
 				processEntry(schedulePanels,txtFieldActivity3.getText(),week3 ,(String) startTime3.getSelectedItem(),endTime3.getSelectedItem().toString(), color3.getSelectedItem().toString());
+				//Try casting to string instead toString
+			}
+		});
+		chckbxEnable2.addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean[] week = {chckbxMonday2.isSelected(),chckbxTuesday2.isSelected(), chckbxWednesday2.isSelected(), chckbxThursday2.isSelected(), chckbxFriday2.isSelected(), chckbxSaturday2.isSelected(), chckbxSunday2.isSelected()};
+				processEntry(schedulePanels,txtFieldActivity2.getText(),week ,(String) startTime2.getSelectedItem(),endTime2.getSelectedItem().toString(), color2.getSelectedItem().toString());
 				//Try casting to string instead toString
 			}
 		});
@@ -393,37 +426,37 @@ public class ScheduleFrame extends JFrame {
 		txtFieldActivity4.setBounds(90, 86, 86, 20);
 		entryPanel.add(txtFieldActivity4);
 		
-		JCheckBox chckbxMonday4 = new JCheckBox("Monday");
+		final JCheckBox chckbxMonday4 = new JCheckBox("Monday");
 		chckbxMonday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday4.setBounds(182, 85, 63, 23);
 		entryPanel.add(chckbxMonday4);
 		
-		JCheckBox chckbxTuesday4 = new JCheckBox("Tuesday");
+		final JCheckBox chckbxTuesday4 = new JCheckBox("Tuesday");
 		chckbxTuesday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday4.setBounds(247, 85, 67, 23);
 		entryPanel.add(chckbxTuesday4);
 		
-		JCheckBox chckbxWednesday4 = new JCheckBox("Wednesday");
+		final JCheckBox chckbxWednesday4 = new JCheckBox("Wednesday");
 		chckbxWednesday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday4.setBounds(316, 85, 83, 23);
 		entryPanel.add(chckbxWednesday4);
 		
-		JCheckBox chckbxThursday4 = new JCheckBox("Thursday");
+		final JCheckBox chckbxThursday4 = new JCheckBox("Thursday");
 		chckbxThursday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday4.setBounds(401, 85, 71, 23);
 		entryPanel.add(chckbxThursday4);
 		
-		JCheckBox chckbxFriday4 = new JCheckBox("Friday");
+		final JCheckBox chckbxFriday4 = new JCheckBox("Friday");
 		chckbxFriday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday4.setBounds(474, 85, 55, 23);
 		entryPanel.add(chckbxFriday4);
 		
-		JCheckBox chckbxSaturday4 = new JCheckBox("Saturday");
+		final JCheckBox chckbxSaturday4 = new JCheckBox("Saturday");
 		chckbxSaturday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday4.setBounds(531, 85, 69, 23);
 		entryPanel.add(chckbxSaturday4);
 		
-		JCheckBox chckbxSunday4 = new JCheckBox("Sunday");
+		final JCheckBox chckbxSunday4 = new JCheckBox("Sunday");
 		chckbxSunday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday4.setBounds(602, 85, 63, 23);
 		entryPanel.add(chckbxSunday4);
@@ -433,7 +466,7 @@ public class ScheduleFrame extends JFrame {
 		label_10.setBounds(686, 89, 53, 14);
 		entryPanel.add(label_10);
 		
-		JComboBox<String> startTime4 = new JComboBox<String>();
+		final JComboBox<String> startTime4 = new JComboBox<String>();
 		startTime4.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		startTime4.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime4.setBounds(745, 86, 54, 20);
@@ -444,7 +477,7 @@ public class ScheduleFrame extends JFrame {
 		label_11.setBounds(809, 89, 47, 14);
 		entryPanel.add(label_11);
 		
-		JComboBox<String> endTime4 = new JComboBox<String>();
+		final JComboBox<String> endTime4 = new JComboBox<String>();
 		endTime4.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		endTime4.setSelectedIndex(1);
 		endTime4.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -456,7 +489,7 @@ public class ScheduleFrame extends JFrame {
 		label_12.setBounds(949, 89, 28, 14);
 		entryPanel.add(label_12);
 		
-		JComboBox<String> color4 = new JComboBox<String>();
+		final JComboBox<String> color4 = new JComboBox<String>();
 		color4.setModel(new DefaultComboBoxModel<String>(new String[] {"Blue", "Cyan", "Gray", "Green", "Magenta", "Orange", "Pink", "Red", "White", "Yellow"}));
 		color4.setSelectedIndex(0);
 		color4.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -467,7 +500,18 @@ public class ScheduleFrame extends JFrame {
 		chckbxEnable4.setBounds(1067, 85, 97, 23);
 		entryPanel.add(chckbxEnable4);
 		
-		// TODO add action listener that calls processEntry
+		//Brian
+		chckbxEnable4.addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean[] week = {chckbxMonday4.isSelected(),chckbxTuesday4.isSelected(), chckbxWednesday4.isSelected(), chckbxThursday4.isSelected(), chckbxFriday4.isSelected(), chckbxSaturday4.isSelected(), chckbxSunday4.isSelected()};
+				processEntry(schedulePanels,txtFieldActivity4.getText(),week ,(String) startTime4.getSelectedItem(),endTime4.getSelectedItem().toString(), color4.getSelectedItem().toString());
+				//Try casting to string instead toString
+			}
+		});
 		
 		
 		JLabel label_13 = new JLabel("Activity Name:");
@@ -480,37 +524,37 @@ public class ScheduleFrame extends JFrame {
 		txtFieldActivity5.setBounds(90, 111, 86, 20);
 		entryPanel.add(txtFieldActivity5);
 		
-		JCheckBox chckbxMonday5 = new JCheckBox("Monday");
+		final JCheckBox chckbxMonday5 = new JCheckBox("Monday");
 		chckbxMonday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday5.setBounds(182, 110, 63, 23);
 		entryPanel.add(chckbxMonday5);
 		
-		JCheckBox chckbxTuesday5 = new JCheckBox("Tuesday");
+		final JCheckBox chckbxTuesday5 = new JCheckBox("Tuesday");
 		chckbxTuesday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday5.setBounds(247, 110, 67, 23);
 		entryPanel.add(chckbxTuesday5);
 		
-		JCheckBox chckbxWednesday5 = new JCheckBox("Wednesday");
+		final JCheckBox chckbxWednesday5 = new JCheckBox("Wednesday");
 		chckbxWednesday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday5.setBounds(316, 110, 83, 23);
 		entryPanel.add(chckbxWednesday5);
 		
-		JCheckBox chckbxThursday5 = new JCheckBox("Thursday");
+		final JCheckBox chckbxThursday5 = new JCheckBox("Thursday");
 		chckbxThursday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday5.setBounds(401, 110, 71, 23);
 		entryPanel.add(chckbxThursday5);
 		
-		JCheckBox chckbxFriday5 = new JCheckBox("Friday");
+		final JCheckBox chckbxFriday5 = new JCheckBox("Friday");
 		chckbxFriday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday5.setBounds(474, 110, 55, 23);
 		entryPanel.add(chckbxFriday5);
 		
-		JCheckBox chckbxSaturday5 = new JCheckBox("Saturday");
+		final JCheckBox chckbxSaturday5 = new JCheckBox("Saturday");
 		chckbxSaturday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday5.setBounds(531, 110, 69, 23);
 		entryPanel.add(chckbxSaturday5);
 		
-		JCheckBox chckbxSunday5 = new JCheckBox("Sunday");
+		final JCheckBox chckbxSunday5 = new JCheckBox("Sunday");
 		chckbxSunday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday5.setBounds(602, 110, 63, 23);
 		entryPanel.add(chckbxSunday5);
@@ -520,7 +564,7 @@ public class ScheduleFrame extends JFrame {
 		label_14.setBounds(686, 114, 53, 14);
 		entryPanel.add(label_14);
 		
-		JComboBox<String> startTime5 = new JComboBox<String>();
+		final JComboBox<String> startTime5 = new JComboBox<String>();
 		startTime5.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		startTime5.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime5.setBounds(745, 111, 54, 20);
@@ -531,7 +575,7 @@ public class ScheduleFrame extends JFrame {
 		label_15.setBounds(809, 114, 47, 14);
 		entryPanel.add(label_15);
 		
-		JComboBox<String> endTime5 = new JComboBox<String>();
+		final JComboBox<String> endTime5 = new JComboBox<String>();
 		endTime5.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
 		endTime5.setSelectedIndex(1);
 		endTime5.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -543,7 +587,7 @@ public class ScheduleFrame extends JFrame {
 		label_16.setBounds(949, 114, 28, 14);
 		entryPanel.add(label_16);
 		
-		JComboBox<String> color5 = new JComboBox<String>();
+		final JComboBox<String> color5 = new JComboBox<String>();
 		color5.setModel(new DefaultComboBoxModel<String>(new String[] {"Blue", "Cyan", "Gray", "Green", "Magenta", "Orange", "Pink", "Red", "White", "Yellow"}));
 		color5.setSelectedIndex(0);
 		color5.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -554,7 +598,18 @@ public class ScheduleFrame extends JFrame {
 		chckbxEnable5.setBounds(1067, 110, 97, 23);
 		entryPanel.add(chckbxEnable5);
 		
-		// TODO add action listener that calls processEntry
+		//Brian
+		chckbxEnable5.addActionListener(new ActionListener() {
+			
+			
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				boolean[] week = {chckbxMonday5.isSelected(),chckbxTuesday5.isSelected(), chckbxWednesday5.isSelected(), chckbxThursday5.isSelected(), chckbxFriday5.isSelected(), chckbxSaturday5.isSelected(), chckbxSunday5.isSelected()};
+				processEntry(schedulePanels,txtFieldActivity5.getText(),week ,(String) startTime5.getSelectedItem(),endTime5.getSelectedItem().toString(), color5.getSelectedItem().toString());
+				//Try casting to string instead toString
+			}
+		});
 		
 	}
 
