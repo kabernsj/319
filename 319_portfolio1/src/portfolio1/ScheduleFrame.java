@@ -13,6 +13,7 @@ import javax.swing.border.EmptyBorder;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Scanner;
 
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
@@ -102,12 +103,98 @@ public class ScheduleFrame extends JFrame {
 	}
 
 	private void displayActivity(JPanel panel, Color color, String activityName) {
-		// TODO Implement this method that creates a label that displays the activityName, adds the label to the panel and changes the panel's background color to the given color
+		//create new label
+		JLabel eventLabel = new JLabel(activityName);
+		eventLabel.setFont(new Font("Arial", Font.PLAIN, 11));
+		
+		//add label
+		panel.add(eventLabel);
+		
+		//set background color
+		panel.setBackground(color);
 	}
 	
 	private void processEntry(JPanel[][] schedulePanels, String activityName, boolean[] days, String startTime, String endTime, String Color) {
-		// TODO Implement this method that takes inputs from the UI and makes necessary calls to displayActivity
-		// this method will need to figure out how many calls to displayActivity are needed and which panels to pass in
+		int start, end;
+		
+		//initialize timeParser for startTime string
+		Scanner timeParser = new Scanner(startTime);
+		
+		//convert start time
+		if(startTime.contains("am"))
+		{
+			start = timeParser.nextInt() - 8;
+		}
+		else if(startTime.contains("12 pm"))
+		{
+			start = 4;
+		}
+		else
+		{
+			start = timeParser.nextInt() + 4;
+		}
+		
+		//initialize time parser for endTime string
+		timeParser = new Scanner(endTime);
+		
+		//convert end time
+		if(endTime.contains("am"))
+		{
+			end = timeParser.nextInt() - 8;
+		}
+		else if(endTime.contains("12 pm"))
+		{
+			end = 4;
+		}
+		else
+		{
+			end = timeParser.nextInt() + 4;
+		}
+		
+		//loop through days
+		for(int i = 0; i < 7; i++)
+		{
+			//if event is planned for the i-th day of the week then draw it
+			if(days[i])
+			{
+				//loop through start and end panels and draw event
+				for(int j = start; j < end; j++)
+				{
+					if(Color.contains("Blue"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.blue, activityName);
+					}
+					else if(Color.contains("Cyan"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.cyan, activityName);
+					}
+					else if(Color.contains("Gray"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.gray, activityName);
+					}
+					else if(Color.contains("Green"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.green, activityName);
+					}
+					else if(Color.contains("Magenta"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.magenta, activityName);
+					}
+					else if(Color.contains("Orange"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.orange, activityName);
+					}
+					else if(Color.contains("Pink"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.pink, activityName);
+					}
+					else
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.red, activityName);
+					}
+				}	
+			}
+		}
 	}
 	
 	private void fillEntryPanel(JPanel entryPanel, final JPanel[][] schedulePanels) {
