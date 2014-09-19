@@ -106,7 +106,6 @@ public class ScheduleFrame extends JFrame {
 	private void displayActivity(JPanel panel, Color color, String activityName) {	
 		//store label
 		JLabel eventLabel = (JLabel) panel.getComponent(0);
-		System.out.println(activityName);
 		
 		//remove check
 		if(activityName.equals("REMOVE"))
@@ -273,10 +272,9 @@ public class ScheduleFrame extends JFrame {
 		
 		final JComboBox<String> startTime1 = new JComboBox<String>();
 		startTime1.setFont(new Font("Arial", Font.PLAIN, 11));
-		startTime1.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		startTime1.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		startTime1.setBounds(745, 11, 54, 20);
 		entryPanel.add(startTime1);
-		addListenerToSelect(startTime1, chckbxEnable1);
 		
 		JLabel lblEndTime = new JLabel("End Time:");
 		lblEndTime.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -285,11 +283,10 @@ public class ScheduleFrame extends JFrame {
 		
 		final JComboBox<String> endTime1 = new JComboBox<String>();
 		endTime1.setFont(new Font("Arial", Font.PLAIN, 11));
-		endTime1.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		endTime1.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		endTime1.setSelectedIndex(1);
 		endTime1.setBounds(866, 11, 54, 20);
 		entryPanel.add(endTime1);
-		addListenerToSelect(endTime1, chckbxEnable1);
 		
 		JLabel lblColor = new JLabel("Color:");
 		lblColor.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -302,7 +299,6 @@ public class ScheduleFrame extends JFrame {
 		color1.setSelectedIndex(0);
 		color1.setBounds(987, 11, 67, 20);
 		entryPanel.add(color1);
-		addListenerToSelect(color1, chckbxEnable1);
 		
 		addActionListenerToCheckbox(chckbxEnable1,
 									schedulePanels,
@@ -374,11 +370,10 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_2);
 		
 		final JComboBox<String> startTime2 = new JComboBox<String>();
-		startTime2.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		startTime2.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		startTime2.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime2.setBounds(745, 36, 54, 20);
 		entryPanel.add(startTime2);
-		addListenerToSelect(startTime2, chckbxEnable2);
 		
 		JLabel label_3 = new JLabel("End Time:");
 		label_3.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -386,12 +381,11 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_3);
 		
 		final JComboBox<String> endTime2 = new JComboBox<String>();
-		endTime2.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		endTime2.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		endTime2.setSelectedIndex(1);
 		endTime2.setFont(new Font("Arial", Font.PLAIN, 11));
 		endTime2.setBounds(866, 36, 54, 20);
 		entryPanel.add(endTime2);
-		addListenerToSelect(endTime2, chckbxEnable2);
 		
 		JLabel label_4 = new JLabel("Color:");
 		label_4.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -404,7 +398,6 @@ public class ScheduleFrame extends JFrame {
 		color2.setFont(new Font("Arial", Font.PLAIN, 11));
 		color2.setBounds(987, 36, 67, 20);
 		entryPanel.add(color2);
-		addListenerToSelect(color2, chckbxEnable2);
 		
 		addActionListenerToCheckbox(chckbxEnable2,
 				schedulePanels,
@@ -472,11 +465,10 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(chckbxSunday3);
 		
 		final JComboBox<String> startTime3 = new JComboBox<String>();
-		startTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		startTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		startTime3.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime3.setBounds(745, 61, 54, 20);
 		entryPanel.add(startTime3);
-		addListenerToSelect(startTime3, chckbxEnable3);
 		
 		JLabel label_6 = new JLabel("Start Time:");
 		label_6.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -489,12 +481,11 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_7);
 		
 		final JComboBox<String> endTime3 = new JComboBox<String>();
-		endTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		endTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		endTime3.setSelectedIndex(1);
 		endTime3.setFont(new Font("Arial", Font.PLAIN, 11));
 		endTime3.setBounds(866, 61, 54, 20);
 		entryPanel.add(endTime3);
-		addListenerToSelect(endTime3, chckbxEnable3);
 		
 		JLabel label_8 = new JLabel("Color:");
 		label_8.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -507,7 +498,6 @@ public class ScheduleFrame extends JFrame {
 		color3.setFont(new Font("Arial", Font.PLAIN, 11));
 		color3.setBounds(987, 61, 67, 20);
 		entryPanel.add(color3);
-		addListenerToSelect(color3, chckbxEnable3);
 		
 		addActionListenerToCheckbox(chckbxEnable3,
 				schedulePanels,
@@ -580,11 +570,10 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_10);
 		
 		final JComboBox<String> startTime4 = new JComboBox<String>();
-		startTime4.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		startTime4.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		startTime4.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime4.setBounds(745, 86, 54, 20);
 		entryPanel.add(startTime4);
-		addListenerToSelect(startTime4, chckbxEnable4);
 		
 		JLabel label_11 = new JLabel("End Time:");
 		label_11.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -592,12 +581,11 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_11);
 
 		final JComboBox<String> endTime4 = new JComboBox<String>();
-		endTime4.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		endTime4.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		endTime4.setSelectedIndex(1);
 		endTime4.setFont(new Font("Arial", Font.PLAIN, 11));
 		endTime4.setBounds(866, 86, 54, 20);
 		entryPanel.add(endTime4);
-		addListenerToSelect(endTime4, chckbxEnable4);
 		
 		JLabel label_12 = new JLabel("Color:");
 		label_12.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -610,7 +598,6 @@ public class ScheduleFrame extends JFrame {
 		color4.setFont(new Font("Arial", Font.PLAIN, 11));
 		color4.setBounds(987, 86, 67, 20);
 		entryPanel.add(color4);
-		addListenerToSelect(color4, chckbxEnable4);
 		
 		addActionListenerToCheckbox(chckbxEnable4,
 				schedulePanels,
@@ -682,11 +669,10 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_14);
 		
 		final JComboBox<String> startTime5 = new JComboBox<String>();
-		startTime5.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		startTime5.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		startTime5.setFont(new Font("Arial", Font.PLAIN, 11));
 		startTime5.setBounds(745, 111, 54, 20);
 		entryPanel.add(startTime5);
-		addListenerToSelect(startTime5, chckbxEnable5);
 		
 		JLabel label_15 = new JLabel("End Time:");
 		label_15.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -694,12 +680,11 @@ public class ScheduleFrame extends JFrame {
 		entryPanel.add(label_15);
 		
 		final JComboBox<String> endTime5 = new JComboBox<String>();
-		endTime5.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
+		endTime5.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm", "11 pm"}));
 		endTime5.setSelectedIndex(1);
 		endTime5.setFont(new Font("Arial", Font.PLAIN, 11));
 		endTime5.setBounds(866, 111, 54, 20);
 		entryPanel.add(endTime5);
-		addListenerToSelect(endTime5, chckbxEnable5);
 		
 		JLabel label_16 = new JLabel("Color:");
 		label_16.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -712,7 +697,6 @@ public class ScheduleFrame extends JFrame {
 		color5.setFont(new Font("Arial", Font.PLAIN, 11));
 		color5.setBounds(987, 111, 67, 20);
 		entryPanel.add(color5);
-		addListenerToSelect(color5, chckbxEnable5);
 		
 		addActionListenerToCheckbox(chckbxEnable5,
 				schedulePanels,
@@ -795,15 +779,6 @@ public class ScheduleFrame extends JFrame {
 					}
 				}
 			});
-	}
-	
-	private void addListenerToSelect(
-			JComboBox<String> component, final JCheckBox chckbxEnable) {
-		component.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent arg0) {
-			chckbxEnable.setSelected(false);
-		}
-	});
 	}
 
 	private JLabel[] getTimeLabels() {
