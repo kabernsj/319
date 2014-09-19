@@ -235,43 +235,36 @@ public class ScheduleFrame extends JFrame {
 		chckbxMonday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday1.setBounds(182, 10, 63, 23);
 		entryPanel.add(chckbxMonday1);
-		addListenerToCheckbox(chckbxMonday1, chckbxEnable1);
 		
 		final JCheckBox chckbxTuesday1 = new JCheckBox("Tuesday");
 		chckbxTuesday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday1.setBounds(247, 10, 67, 23);
 		entryPanel.add(chckbxTuesday1);
-		addListenerToCheckbox(chckbxTuesday1, chckbxEnable1);
 		
 		final JCheckBox chckbxWednesday1 = new JCheckBox("Wednesday");
 		chckbxWednesday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday1.setBounds(316, 10, 83, 23);
 		entryPanel.add(chckbxWednesday1);
-		addListenerToCheckbox(chckbxWednesday1, chckbxEnable1);
 		
 		final JCheckBox chckbxThursday1 = new JCheckBox("Thursday");
 		chckbxThursday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday1.setBounds(401, 10, 71, 23);
 		entryPanel.add(chckbxThursday1);
-		addListenerToCheckbox(chckbxThursday1, chckbxEnable1);
 		
 		final JCheckBox chckbxFriday1 = new JCheckBox("Friday");
 		chckbxFriday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday1.setBounds(474, 10, 55, 23);
 		entryPanel.add(chckbxFriday1);
-		addListenerToCheckbox(chckbxFriday1, chckbxEnable1);
 		
 		final JCheckBox chckbxSaturday1 = new JCheckBox("Saturday");
 		chckbxSaturday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday1.setBounds(531, 10, 69, 23);
 		entryPanel.add(chckbxSaturday1);
-		addListenerToCheckbox(chckbxSaturday1, chckbxEnable1);
 		
 		final JCheckBox chckbxSunday1 = new JCheckBox("Sunday");
 		chckbxSunday1.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday1.setBounds(602, 10, 63, 23);
 		entryPanel.add(chckbxSunday1);
-		addListenerToCheckbox(chckbxSunday1, chckbxEnable1);
 		
 		JLabel lblStartTime = new JLabel("Start Time:");
 		lblStartTime.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -339,49 +332,41 @@ public class ScheduleFrame extends JFrame {
 		txtFieldActivity2.setColumns(10);
 		txtFieldActivity2.setBounds(90, 36, 86, 20);
 		entryPanel.add(txtFieldActivity2);
-		addListenerToTextField(txtFieldActivity2, chckbxEnable2);
 		
 		final JCheckBox chckbxMonday2 = new JCheckBox("Monday");
 		chckbxMonday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday2.setBounds(182, 35, 63, 23);
 		entryPanel.add(chckbxMonday2);
-		addListenerToCheckbox(chckbxMonday2, chckbxEnable2);
 		
 		final JCheckBox chckbxTuesday2 = new JCheckBox("Tuesday");
 		chckbxTuesday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday2.setBounds(247, 35, 67, 23);
 		entryPanel.add(chckbxTuesday2);
-		addListenerToCheckbox(chckbxTuesday2, chckbxEnable2);
 		
 		final JCheckBox chckbxWednesday2 = new JCheckBox("Wednesday");
 		chckbxWednesday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday2.setBounds(316, 35, 83, 23);
 		entryPanel.add(chckbxWednesday2);
-		addListenerToCheckbox(chckbxWednesday2, chckbxEnable2);
 		
 		final JCheckBox chckbxThursday2 = new JCheckBox("Thursday");
 		chckbxThursday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday2.setBounds(401, 35, 71, 23);
 		entryPanel.add(chckbxThursday2);
-		addListenerToCheckbox(chckbxThursday2, chckbxEnable2);
 		
 		final JCheckBox chckbxFriday2 = new JCheckBox("Friday");
 		chckbxFriday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday2.setBounds(474, 35, 55, 23);
 		entryPanel.add(chckbxFriday2);
-		addListenerToCheckbox(chckbxFriday2, chckbxEnable2);
 		
 		final JCheckBox chckbxSaturday2 = new JCheckBox("Saturday");
 		chckbxSaturday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday2.setBounds(531, 35, 69, 23);
 		entryPanel.add(chckbxSaturday2);
-		addListenerToCheckbox(chckbxSaturday2, chckbxEnable2);
 		
 		final JCheckBox chckbxSunday2 = new JCheckBox("Sunday");
 		chckbxSunday2.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday2.setBounds(602, 35, 63, 23);
 		entryPanel.add(chckbxSunday2);
-		addListenerToCheckbox(chckbxSunday2, chckbxEnable2);
 		
 		JLabel label_2 = new JLabel("Start Time:");
 		label_2.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -455,43 +440,36 @@ public class ScheduleFrame extends JFrame {
 		chckbxMonday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday3.setBounds(182, 60, 63, 23);
 		entryPanel.add(chckbxMonday3);
-		addListenerToCheckbox(chckbxMonday3, chckbxEnable3);
 		
 		final JCheckBox chckbxTuesday3 = new JCheckBox("Tuesday");
 		chckbxTuesday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday3.setBounds(247, 60, 67, 23);
 		entryPanel.add(chckbxTuesday3);
-		addListenerToCheckbox(chckbxTuesday3, chckbxEnable3);
 		
 		final JCheckBox chckbxWednesday3 = new JCheckBox("Wednesday");
 		chckbxWednesday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday3.setBounds(316, 60, 83, 23);
 		entryPanel.add(chckbxWednesday3);
-		addListenerToCheckbox(chckbxWednesday3, chckbxEnable3);
 		
 		final JCheckBox chckbxThursday3 = new JCheckBox("Thursday");
 		chckbxThursday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday3.setBounds(401, 60, 71, 23);
 		entryPanel.add(chckbxThursday3);
-		addListenerToCheckbox(chckbxThursday3, chckbxEnable3);
 		
 		final JCheckBox chckbxFriday3 = new JCheckBox("Friday");
 		chckbxFriday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday3.setBounds(474, 60, 55, 23);
 		entryPanel.add(chckbxFriday3);
-		addListenerToCheckbox(chckbxFriday3, chckbxEnable3);
 		
 		final JCheckBox chckbxSaturday3 = new JCheckBox("Saturday");
 		chckbxSaturday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday3.setBounds(531, 60, 69, 23);
 		entryPanel.add(chckbxSaturday3);
-		addListenerToCheckbox(chckbxSaturday3, chckbxEnable3);
 		
 		final JCheckBox chckbxSunday3 = new JCheckBox("Sunday");
 		chckbxSunday3.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday3.setBounds(602, 60, 63, 23);
 		entryPanel.add(chckbxSunday3);
-		addListenerToCheckbox(chckbxSunday3, chckbxEnable3);
 		
 		final JComboBox<String> startTime3 = new JComboBox<String>();
 		startTime3.setModel(new DefaultComboBoxModel<String>(new String[] {"8 am", "9 am", "10 am", "11 am", "12 pm", "1 pm", "2 pm", "3 pm", "4 pm", "5 pm", "6 pm", "7 pm", "8 pm", "9 pm", "10 pm"}));
@@ -565,43 +543,36 @@ public class ScheduleFrame extends JFrame {
 		chckbxMonday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday4.setBounds(182, 85, 63, 23);
 		entryPanel.add(chckbxMonday4);
-		addListenerToCheckbox(chckbxMonday4, chckbxEnable4);
 		
 		final JCheckBox chckbxTuesday4 = new JCheckBox("Tuesday");
 		chckbxTuesday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday4.setBounds(247, 85, 67, 23);
 		entryPanel.add(chckbxTuesday4);
-		addListenerToCheckbox(chckbxTuesday4, chckbxEnable4);
 		
 		final JCheckBox chckbxWednesday4 = new JCheckBox("Wednesday");
 		chckbxWednesday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday4.setBounds(316, 85, 83, 23);
 		entryPanel.add(chckbxWednesday4);
-		addListenerToCheckbox(chckbxWednesday4, chckbxEnable4);
 		
 		final JCheckBox chckbxThursday4 = new JCheckBox("Thursday");
 		chckbxThursday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday4.setBounds(401, 85, 71, 23);
 		entryPanel.add(chckbxThursday4);
-		addListenerToCheckbox(chckbxThursday4, chckbxEnable4);
 		
 		final JCheckBox chckbxFriday4 = new JCheckBox("Friday");
 		chckbxFriday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday4.setBounds(474, 85, 55, 23);
 		entryPanel.add(chckbxFriday4);
-		addListenerToCheckbox(chckbxFriday4, chckbxEnable4);
 		
 		final JCheckBox chckbxSaturday4 = new JCheckBox("Saturday");
 		chckbxSaturday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday4.setBounds(531, 85, 69, 23);
 		entryPanel.add(chckbxSaturday4);
-		addListenerToCheckbox(chckbxSaturday4, chckbxEnable4);
 		
 		final JCheckBox chckbxSunday4 = new JCheckBox("Sunday");
 		chckbxSunday4.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday4.setBounds(602, 85, 63, 23);
 		entryPanel.add(chckbxSunday4);
-		addListenerToCheckbox(chckbxSunday4, chckbxEnable4);
 		
 		JLabel label_10 = new JLabel("Start Time:");
 		label_10.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -674,43 +645,36 @@ public class ScheduleFrame extends JFrame {
 		chckbxMonday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxMonday5.setBounds(182, 110, 63, 23);
 		entryPanel.add(chckbxMonday5);
-		addListenerToCheckbox(chckbxMonday5, chckbxEnable5);
 		
 		final JCheckBox chckbxTuesday5 = new JCheckBox("Tuesday");
 		chckbxTuesday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxTuesday5.setBounds(247, 110, 67, 23);
 		entryPanel.add(chckbxTuesday5);
-		addListenerToCheckbox(chckbxTuesday5, chckbxEnable5);
 		
 		final JCheckBox chckbxWednesday5 = new JCheckBox("Wednesday");
 		chckbxWednesday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxWednesday5.setBounds(316, 110, 83, 23);
 		entryPanel.add(chckbxWednesday5);
-		addListenerToCheckbox(chckbxWednesday5, chckbxEnable5);
 		
 		final JCheckBox chckbxThursday5 = new JCheckBox("Thursday");
 		chckbxThursday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxThursday5.setBounds(401, 110, 71, 23);
 		entryPanel.add(chckbxThursday5);
-		addListenerToCheckbox(chckbxThursday5, chckbxEnable5);
 		
 		final JCheckBox chckbxFriday5 = new JCheckBox("Friday");
 		chckbxFriday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxFriday5.setBounds(474, 110, 55, 23);
 		entryPanel.add(chckbxFriday5);
-		addListenerToCheckbox(chckbxFriday5, chckbxEnable5);
 		
 		final JCheckBox chckbxSaturday5 = new JCheckBox("Saturday");
 		chckbxSaturday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSaturday5.setBounds(531, 110, 69, 23);
 		entryPanel.add(chckbxSaturday5);
-		addListenerToCheckbox(chckbxSaturday5, chckbxEnable5);
 		
 		final JCheckBox chckbxSunday5 = new JCheckBox("Sunday");
 		chckbxSunday5.setFont(new Font("Arial", Font.PLAIN, 11));
 		chckbxSunday5.setBounds(602, 110, 63, 23);
 		entryPanel.add(chckbxSunday5);
-		addListenerToCheckbox(chckbxSunday5, chckbxEnable5);
 		
 		JLabel label_14 = new JLabel("Start Time:");
 		label_14.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -780,15 +744,6 @@ public class ScheduleFrame extends JFrame {
 			public void removeUpdate(DocumentEvent arg0) {
 				chckbxEnable.setSelected(false);
 			}
-	});
-	}
-	
-	private void addListenerToCheckbox(
-			JCheckBox component, final JCheckBox chckbxEnable) {
-		component.addActionListener(new ActionListener() {
-		public void actionPerformed(ActionEvent arg0) {
-			chckbxEnable.setSelected(false);
-		}
 	});
 	}
 	
