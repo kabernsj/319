@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Scanner;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JCheckBox;
@@ -102,20 +103,34 @@ public class ScheduleFrame extends JFrame {
 		
 	}
 
-	private void displayActivity(JPanel panel, Color color, String activityName) {
-		//create new label
-		JLabel eventLabel = new JLabel(activityName);
-		eventLabel.setFont(new Font("Arial", Font.PLAIN, 11));
+	private void displayActivity(JPanel panel, Color color, String activityName) {	
+		//store label
+		JLabel eventLabel = (JLabel) panel.getComponent(0);
+		System.out.println(activityName);
 		
-		//add label
-		panel.add(eventLabel);
+		//remove check
+		if(activityName.equals("REMOVE"))
+		{
+			panel.setBackground(new Color(238, 238, 238));
+			eventLabel.setText("");
+		}
 		
-		//set background color
-		panel.setBackground(color);
+		//conflict check
+		else if(!eventLabel.getText().equals(""))
+		{
+			panel.setBackground(Color.red);
+			eventLabel.setText("CONFLICTED");
+		}
+		//if no conflict
+		else
+		{
+			panel.setBackground(color);
+			eventLabel.setText(activityName);
+		}
 	}
 	
 	private void processEntry(JPanel[][] schedulePanels, String activityName, boolean[] days, String startTime, String endTime, String Color) {
-int start, end;
+		int start, end;
 		
 		//initialize timeParser for startTime string
 		Scanner timeParser = new Scanner(startTime);
@@ -188,9 +203,13 @@ int start, end;
 					{
 						displayActivity(schedulePanels[i][j], java.awt.Color.pink, activityName);
 					}
+					else if(Color.contains("White"))
+					{
+						displayActivity(schedulePanels[i][j], java.awt.Color.white, activityName);
+					}
 					else
 					{
-						displayActivity(schedulePanels[i][j], java.awt.Color.red, activityName);
+						displayActivity(schedulePanels[i][j], java.awt.Color.yellow, activityName);
 					}
 				}	
 			}
@@ -292,19 +311,19 @@ int start, end;
 		entryPanel.add(color1);
 		addListenerToSelect(color1, chckbxEnable1);
 		
-		//Brian
-		chckbxEnable1.addActionListener(new ActionListener() {
-			
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean[] week = {chckbxMonday1.isSelected(),chckbxTuesday1.isSelected(), chckbxWednesday1.isSelected(), chckbxThursday1.isSelected(), chckbxFriday1.isSelected(), chckbxSaturday1.isSelected(), chckbxSunday1.isSelected()};
-				processEntry(schedulePanels,txtFieldActivity1.getText(),week ,(String) startTime1.getSelectedItem(),endTime1.getSelectedItem().toString(), color1.getSelectedItem().toString());
-				//Try casting to string instead toString
-			}
-		});
-		
+		addActionListenerToCheckbox(chckbxEnable1,
+									schedulePanels,
+									txtFieldActivity1,
+									startTime1,
+									endTime1,
+									color1,
+									chckbxMonday1,
+									chckbxTuesday1,
+									chckbxWednesday1,
+									chckbxThursday1,
+									chckbxFriday1,
+									chckbxSaturday1,
+									chckbxSunday1);
 		
 		JLabel label_1 = new JLabel("Activity Name:");
 		label_1.setFont(new Font("Arial", Font.PLAIN, 11));
@@ -402,18 +421,19 @@ int start, end;
 		entryPanel.add(color2);
 		addListenerToSelect(color2, chckbxEnable2);
 		
-		//Brian
-		chckbxEnable2.addActionListener(new ActionListener() {
-			
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean[] week = {chckbxMonday2.isSelected(),chckbxTuesday2.isSelected(), chckbxWednesday2.isSelected(), chckbxThursday2.isSelected(), chckbxFriday2.isSelected(), chckbxSaturday2.isSelected(), chckbxSunday2.isSelected()};
-				processEntry(schedulePanels,txtFieldActivity2.getText(),week ,(String) startTime2.getSelectedItem(),endTime2.getSelectedItem().toString(), color2.getSelectedItem().toString());
-				//Try casting to string instead toString
-			}
-		});
+		addActionListenerToCheckbox(chckbxEnable2,
+				schedulePanels,
+				txtFieldActivity2,
+				startTime2,
+				endTime2,
+				color2,
+				chckbxMonday2,
+				chckbxTuesday2,
+				chckbxWednesday2,
+				chckbxThursday2,
+				chckbxFriday2,
+				chckbxSaturday2,
+				chckbxSunday2);
 		
 		
 		JCheckBox chckbxEnable3 = new JCheckBox("Enable");
@@ -511,29 +531,19 @@ int start, end;
 		entryPanel.add(color3);
 		addListenerToSelect(color3, chckbxEnable3);
 		
-		//Brian
-		chckbxEnable3.addActionListener(new ActionListener() {
-			
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean[] week3 = {chckbxMonday3.isSelected(),chckbxTuesday3.isSelected(), chckbxWednesday3.isSelected(), chckbxThursday3.isSelected(), chckbxFriday3.isSelected(), chckbxSaturday3.isSelected(), chckbxSunday3.isSelected()};
-				processEntry(schedulePanels,txtFieldActivity3.getText(),week3 ,(String) startTime3.getSelectedItem(),endTime3.getSelectedItem().toString(), color3.getSelectedItem().toString());
-				//Try casting to string instead toString
-			}
-		});
-		chckbxEnable2.addActionListener(new ActionListener() {
-			
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean[] week = {chckbxMonday2.isSelected(),chckbxTuesday2.isSelected(), chckbxWednesday2.isSelected(), chckbxThursday2.isSelected(), chckbxFriday2.isSelected(), chckbxSaturday2.isSelected(), chckbxSunday2.isSelected()};
-				processEntry(schedulePanels,txtFieldActivity2.getText(),week ,(String) startTime2.getSelectedItem(),endTime2.getSelectedItem().toString(), color2.getSelectedItem().toString());
-				//Try casting to string instead toString
-			}
-		});
+		addActionListenerToCheckbox(chckbxEnable3,
+				schedulePanels,
+				txtFieldActivity3,
+				startTime3,
+				endTime3,
+				color3,
+				chckbxMonday3,
+				chckbxTuesday3,
+				chckbxWednesday3,
+				chckbxThursday3,
+				chckbxFriday3,
+				chckbxSaturday3,
+				chckbxSunday3);
 		
 		
 		JCheckBox chckbxEnable4 = new JCheckBox("Enable");
@@ -631,19 +641,19 @@ int start, end;
 		entryPanel.add(color4);
 		addListenerToSelect(color4, chckbxEnable4);
 		
-		//Brian
-		chckbxEnable4.addActionListener(new ActionListener() {
-			
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean[] week = {chckbxMonday4.isSelected(),chckbxTuesday4.isSelected(), chckbxWednesday4.isSelected(), chckbxThursday4.isSelected(), chckbxFriday4.isSelected(), chckbxSaturday4.isSelected(), chckbxSunday4.isSelected()};
-				processEntry(schedulePanels,txtFieldActivity4.getText(),week ,(String) startTime4.getSelectedItem(),endTime4.getSelectedItem().toString(), color4.getSelectedItem().toString());
-				//Try casting to string instead toString
-			}
-		});
-		
+		addActionListenerToCheckbox(chckbxEnable4,
+				schedulePanels,
+				txtFieldActivity4,
+				startTime4,
+				endTime4,
+				color4,
+				chckbxMonday4,
+				chckbxTuesday4,
+				chckbxWednesday4,
+				chckbxThursday4,
+				chckbxFriday4,
+				chckbxSaturday4,
+				chckbxSunday4);
 
 		JCheckBox chckbxEnable5 = new JCheckBox("Enable");
 		chckbxEnable5.setBounds(1067, 110, 97, 23);
@@ -740,18 +750,19 @@ int start, end;
 		entryPanel.add(color5);
 		addListenerToSelect(color5, chckbxEnable5);
 		
-		//Brian
-		chckbxEnable5.addActionListener(new ActionListener() {
-			
-			
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				boolean[] week = {chckbxMonday5.isSelected(),chckbxTuesday5.isSelected(), chckbxWednesday5.isSelected(), chckbxThursday5.isSelected(), chckbxFriday5.isSelected(), chckbxSaturday5.isSelected(), chckbxSunday5.isSelected()};
-				processEntry(schedulePanels,txtFieldActivity5.getText(),week ,(String) startTime5.getSelectedItem(),endTime5.getSelectedItem().toString(), color5.getSelectedItem().toString());
-				//Try casting to string instead toString
-			}
-		});
+		addActionListenerToCheckbox(chckbxEnable5,
+				schedulePanels,
+				txtFieldActivity5,
+				startTime5,
+				endTime5,
+				color5,
+				chckbxMonday5,
+				chckbxTuesday5,
+				chckbxWednesday5,
+				chckbxThursday5,
+				chckbxFriday5,
+				chckbxSaturday5,
+				chckbxSunday5);
 		
 	}
 
@@ -779,6 +790,56 @@ int start, end;
 			chckbxEnable.setSelected(false);
 		}
 	});
+	}
+	
+	private void addActionListenerToCheckbox(final JCheckBox component,
+											 final JPanel[][] schedulePanels,
+											 final JTextField textfield,
+											 final JComboBox<String> startTime,
+											 final JComboBox<String> endTime,
+											 final JComboBox<String> color,
+											 final JCheckBox monday,
+											 final JCheckBox tuesday,
+											 final JCheckBox wednesday,
+											 final JCheckBox thursday,
+											 final JCheckBox friday,
+											 final JCheckBox saturday,
+											 final JCheckBox sunday) {
+			component.addActionListener(new ActionListener() {
+				public void actionPerformed(ActionEvent e) {
+					boolean[] week = {monday.isSelected(),tuesday.isSelected(), wednesday.isSelected(), thursday.isSelected(), friday.isSelected(), saturday.isSelected(), sunday.isSelected()};
+					if(component.isSelected())
+					{
+						processEntry(schedulePanels,textfield.getText(),week ,(String) startTime.getSelectedItem(),endTime.getSelectedItem().toString(), color.getSelectedItem().toString());
+						textfield.setEditable(false);
+						startTime.setEnabled(false);
+						endTime.setEnabled(false);
+						color.setEnabled(false);
+						monday.setEnabled(false);
+						tuesday.setEnabled(false);
+						wednesday.setEnabled(false);
+						thursday.setEnabled(false);
+						friday.setEnabled(false);
+						saturday.setEnabled(false);
+						sunday.setEnabled(false);
+					}
+					else
+					{
+						processEntry(schedulePanels,"REMOVE",week ,(String) startTime.getSelectedItem(),endTime.getSelectedItem().toString(), color.getSelectedItem().toString());
+						textfield.setEditable(true);
+						startTime.setEnabled(true);
+						endTime.setEnabled(true);
+						color.setEnabled(true);
+						monday.setEnabled(true);
+						tuesday.setEnabled(true);
+						wednesday.setEnabled(true);
+						thursday.setEnabled(true);
+						friday.setEnabled(true);
+						saturday.setEnabled(true);
+						sunday.setEnabled(true);
+					}
+				}
+			});
 	}
 	
 	private void addListenerToSelect(
@@ -833,6 +894,10 @@ int start, end;
 			for (int j = 0; j < 15; j++) {
 				ret[i][j] = new JPanel();
 				ret[i][j].setBorder(BorderFactory.createLineBorder(Color.black, 1));
+				
+				JLabel eventLabel = new JLabel("");
+				eventLabel.setFont(new Font("Arial", Font.PLAIN, 11));
+				ret[i][j].add(eventLabel);
 			}
 		}
 		return ret;
